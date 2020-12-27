@@ -10,6 +10,7 @@ using Office = Microsoft.Office.Core;
 using System.Text.RegularExpressions;
 //Required to produce MessageBox object
 using System.Windows.Forms;
+using Microsoft.Office.Tools.Ribbon;
 
 namespace SentMessagesSave
 {
@@ -36,20 +37,32 @@ namespace SentMessagesSave
             Outlook.MailItem mail = (Outlook.MailItem)Item;
 
             //Set Custom Path Here
-            String path = @"C:\temp\";
+            String path = Properties.Settings.Default.filePath;
 
-            if (mail.Subject != null)
+            if (mail.Subject == null || mail.Subject.Contains(Properties.Settings.Default.matchText).Equals(true) || Properties.Settings.Default.matchText.Equals(""))
             {
-                //Formats String, Removes Special Characters
-                String subject = Regex.Replace(mail.Subject, @"[^0-9a-zA-Z]+", "");
 
-                //Saves Mail to Specified Path
-                mail.SaveAs((path + subject + ".msg"));
-            }
-            else
-            {
-                //Handling of Mail With No Subject
-                mail.SaveAs(path + "NoSubject" + ".msg");
+                if (mail.Subject == null)
+                {
+                    //Handling of Mail With No Subject
+                    mail.SaveAs(path + "NoSubject" + ".msg");
+                }
+
+                else
+                {
+                    //Formats String, Removes Special Characters
+                    String subject = Regex.Replace(mail.Subject, @"[^0-9a-zA-Z]+", "");
+
+                    try
+                    {
+                        //Saves Mail to Specified Path
+                        mail.SaveAs(path + subject + ".msg");
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error saving your e-mail. Please check your file path and try again.");
+                    }
+                }
             }
         }
         #region VSTO generated code
