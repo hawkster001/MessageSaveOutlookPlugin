@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="filePath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\temp\</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="matchText" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

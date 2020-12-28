@@ -25,7 +25,7 @@ namespace SentMessagesSave.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\temp\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string filePath {
             get {
                 return ((string)(this["filePath"]));

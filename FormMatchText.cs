@@ -30,6 +30,7 @@ namespace SentMessagesSave
         private void btnSave_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.matchText = txtCurrentMatchText.Text;
+            Properties.Settings.Default.Save();
 
             MessageBox.Show("The new Match Text has been saved!");
         }

@@ -75,7 +75,7 @@ namespace SentMessagesSave
             // lblMatchTextMessage
             // 
             this.lblMatchTextMessage.AutoSize = true;
-            this.lblMatchTextMessage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMatchTextMessage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblMatchTextMessage.Location = new System.Drawing.Point(0, 0);
             this.lblMatchTextMessage.Name = "lblMatchTextMessage";
             this.lblMatchTextMessage.Size = new System.Drawing.Size(482, 13);
